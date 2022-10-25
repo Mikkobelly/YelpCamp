@@ -154,11 +154,11 @@ app.use((req, res, next) => {
     next();
 })
 
-app.get('/fakeUser', async (req, res) => {
-    const user = new User({ email: 'mikko@google.com', username: 'Mikko' });
-    const newUser = await User.register(user, 'mikkochan');
-    res.send(newUser)
-})
+// app.get('/fakeUser', async (req, res) => {
+//     const user = new User({ email: 'mikko@google.com', username: 'Mikko' });
+//     const newUser = await User.register(user, 'mikkochan');
+//     res.send(newUser)
+// })
 
 app.use('/', userRoutes)
 app.use('/campgrounds', campgroundRoutes)
@@ -167,7 +167,6 @@ app.use('/campgrounds/:id/reviews', reviewRoutes)
 app.get('/', (req, res) => {
     res.render('home')
 })
-
 
 
 app.all('*', (req, res, next) => {
